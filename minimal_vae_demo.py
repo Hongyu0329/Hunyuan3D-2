@@ -24,7 +24,7 @@ loader = SharpEdgeSurfaceLoader(
     num_sharp_points=5120,
     num_uniform_points=5120,
 )
-surface = loader('demo.glb').to('cuda', dtype=torch.float16)
+surface = loader('cat.obj').to('cuda', dtype=torch.float16)
 
 latents = vae.encode(surface)
 latents = vae.decode(latents)
@@ -41,4 +41,4 @@ mesh = vae.latents2mesh(
 from hy3dgen.shapegen.pipelines import export_to_trimesh
 
 mesh = export_to_trimesh(mesh)[0]
-mesh.export('output.glb')
+mesh.export('cat_tex.obj')
