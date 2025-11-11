@@ -22,7 +22,7 @@ model_path = 'tencent/Hunyuan3D-2'
 pipeline_shapegen = Hunyuan3DDiTFlowMatchingPipeline.from_pretrained(model_path)
 pipeline_texgen = Hunyuan3DPaintPipeline.from_pretrained(model_path)
 
-image_path = 'assets/cat.png'
+image_path = 'assets/input.png'
 image = Image.open(image_path).convert("RGBA")
 if image.mode == 'RGB':
     rembg = BackgroundRemover()
